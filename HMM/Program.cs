@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
 
 namespace HMM
 {
     class Program
     {
+        static readonly string StartupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent?.FullName;
+
         static void Main(string[] args)
         {
             double[,] A = {
@@ -60,7 +61,7 @@ namespace HMM
 
         public static int[] ReadFromFile(string fileName)
         {
-            var filePAth = $@"C:\Users\Blazej\OneDrive\Sem 3 mgr\Modelowanie internetu\Zadanie 1\Observations\{fileName}.txt";
+            var filePAth = $@"{StartupPath}\Observations\{fileName}.txt";
             string[] stringObservations = File.ReadAllLines(filePAth);
 
             int[] observations = Array.ConvertAll(stringObservations, int.Parse);
@@ -72,7 +73,7 @@ namespace HMM
         {
             var separator = ";";
 
-            using (StreamWriter outputFile = new StreamWriter(@"C:\Users\Blazej\OneDrive\Sem 3 mgr\Modelowanie internetu\Zadanie 1\Results\" + fileName + ".xls"))
+            using (StreamWriter outputFile = new StreamWriter($@"{StartupPath}\Results\{fileName}.xls"))
             {
                 var headerLine = $"Forward Backward Algorithm Results{separator}Viterbi Algorithm Results";
                 outputFile.WriteLine(headerLine);
