@@ -1,0 +1,6 @@
+c:\users\blazej\documents\visual studio 2015\Projects\HMM\HMM\bin\Debug\HMM.exe.config
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\HMM\bin\Debug\HMM.exe
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\HMM\bin\Debug\HMM.pdb
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\HMM\obj\Debug\HMM.csprojResolveAssemblyReference.cache
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\HMM\obj\Debug\HMM.exe
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\HMM\obj\Debug\HMM.pdb

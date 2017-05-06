@@ -1,0 +1,9 @@
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\bin\Debug\Tests.dll
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\bin\Debug\Tests.pdb
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\bin\Debug\HMM.exe
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\bin\Debug\HMM.pdb
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\obj\Debug\Tests.dll
+C:\Users\Blazej\Documents\Visual Studio 2015\Projects\HMM\Tests\obj\Debug\Tests.pdb
