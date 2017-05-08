@@ -45,8 +45,7 @@ namespace HMM
             //SaveResult(Q, V, A, B, pi, observation, "AlgResults_other");
         }
 
-        public static void SaveResult(string[] Q, int[] V, double[,] A, double[,] B, double[] pi,
-            int[] observation, string fileName)
+        public static void SaveResult(string[] Q, int[] V, double[,] A, double[,] B, double[] pi, int[] observation, string fileName)
         {
             var N = Q.Length; // number of states in the model (Bessa, Hossa)
             var M = V.Length; // number of observation model (Down, Up, Unchanged)

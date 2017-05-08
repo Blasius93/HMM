@@ -28,47 +28,38 @@ namespace HMM
             c0 = 1 / divide;
             for (var i = 0; i <= (N - 1); i++)
             {
-                var temp = resultA[0, i];
-                resultA[0, i] = c0 * temp;
+                resultA[0, i] = c0 * resultA[0, i];
             }
 
             // Compute at(i)
-            //var ct = new List<double>();
             var ct = new double[T];
-            //ct.Add(c0);
             ct[0] = c0;
             for (var t = 1; t <= T - 1; t++)
             {
-                ct[t] = 0; // ?
+                ct[t] = 0;
                 for (var i = 0; i <= N - 1; i++)
                 {
                     resultA[t, i] = 0;
                     for (var j = 0; j <= N - 1; j++)
                     {
-                        var temp = resultA[t, i];
-                        resultA[t, i] = temp + resultA[t - 1, j] * A[j, i];
+                        resultA[t, i] = resultA[t, i] + resultA[t - 1, j] * A[j, i];
                     }
 
-                    var temp2 = resultA[t, i];
-                    resultA[t, i] = temp2 * B[i, observation[t]];
-
-                    var temp3 = ct[t];
-                    ct[t] = temp3 + resultA[t, i];
+                    resultA[t, i] = resultA[t, i] * B[i, observation[t]];
+                    ct[t] = ct[t] + resultA[t, i];
                 }
 
                 //scale at(i)
-                var temp4 = ct[t];
-                ct[t] = 1 / temp4;
+                ct[t] = 1 / ct[t];
                 for (var i = 0; i <= N - 1; i++)
                 {
-                    var temp5 = resultA[t, i];
-                    resultA[t, i] = ct[t] * temp5;
+                    resultA[t, i] = ct[t] * resultA[t, i];
                 }
             }
 
             // beta-pass
-            //var resultB = new List<List<double>>();
             var resultB = new double[T, N];
+
             // Let b(T-1)(i) scaled by c(t-1)
             for (var i = 0; i <= N - 1; i++)
             {
@@ -81,12 +72,10 @@ namespace HMM
                     resultB[t, i] = 0;
                     for (var j = 0; j <= N - 1; j++)
                     {
-                        var temp6 = resultB[t, i];
-                        resultB[t, i] = temp6 + A[i, j] * B[j, observation[t + 1]] * resultB[t + 1, j];
+                        resultB[t, i] = resultB[t, i] + A[i, j] * B[j, observation[t + 1]] * resultB[t + 1, j];
                     }
                     // scale Bi(t) with same scale factor as At(i)
-                    var temp7 = resultB[t, i];
-                    resultB[t, i] = ct[t] * temp7;
+                    resultB[t, i] = ct[t] * resultB[t, i];
                 }
             }
 
@@ -102,8 +91,7 @@ namespace HMM
                 {
                     for (var j = 0; j <= N - 1; j++)
                     {
-                        var temp8 = denom;
-                        denom = temp8 + resultA[t, i] * A[i, j] * B[j, observation[t + 1]] * resultB[t + 1, j];
+                        denom = denom + resultA[t, i] * A[i, j] * B[j, observation[t + 1]] * resultB[t + 1, j];
                     }
                 }
                 for (var i = 0; i <= N - 1; i++)
@@ -112,8 +100,7 @@ namespace HMM
                     for (var j = 0; j <= N - 1; j++)
                     {
                         y[t, i, j] = (resultA[t, i] * A[i, j] * B[j, observation[t + 1]] * resultB[t + 1, j]) / denom;
-                        var temp9 = resultY[t, i];
-                        resultY[t, i] = temp9 + y[t, i, j];
+                        resultY[t, i] = resultY[t, i] + y[t, i, j];
                     }
                 }
             }
@@ -122,8 +109,7 @@ namespace HMM
             //double denom2 = 0;
             //for (var i = 0; i <= N - 1; i++)
             //{
-            //    var temp8 = denom2;
-            //    denom2 = temp8 + resultA[T-1, i] * resultB[T - 1, i];
+            //    denom2 = denom2 + resultA[T-1, i] * resultB[T - 1, i];
             //}
 
             //for (var i = 0; i <= N - 1; i++)
