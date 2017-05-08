@@ -34,7 +34,7 @@ namespace HMM
 
             // Quarterly SP500
             observation = ReadFromFile("Observation_quarterly");
-            SaveResult(Q, V, A, B, pi, observation, "AlgResults_quarterly");
+            SaveResult(Q, V, A, B, pi, observation, "AlgResults_quarterly2");
 
             // Weekly SP500
             //observation = ReadFromFile("Observation_weekly");
